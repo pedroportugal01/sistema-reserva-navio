@@ -1,7 +1,6 @@
 package br.fiap.carga;
 
 import br.fiap.cliente.Cliente;
-
 import java.util.Random;
 
 public class Carga {
@@ -11,9 +10,7 @@ public class Carga {
     private double peso;
     private Cliente cliente;
 
-    //Construtor
-
-
+    // Construtor
     public Carga(String destino, Cliente cliente) {
         this.destino = destino;
         this.cliente = cliente;
@@ -24,13 +21,12 @@ public class Carga {
         this.peso = 100 + (gerador.nextDouble() * 900);
     }
 
-    //Getters e Setters
-
-    public int getId(){
+    // Getters e Setters
+    public int getId() {
         return id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -58,8 +54,9 @@ public class Carga {
         this.cliente = cliente;
     }
 
-      public String getDados(){
+    public String getDados() {
+        // Ajustado o %.2f para mostrar duas casas decimais corretamente
         return "ID da Carga: " + id + "\nDestino: " + destino +
-                String.format("\nPeso: %2f kg\n",peso) + cliente.getDados();
-      }
+                String.format("\nPeso: %.2f kg\n", peso) + cliente.getDados();
+    }
 }

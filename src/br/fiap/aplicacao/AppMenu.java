@@ -1,8 +1,9 @@
 package br.fiap.aplicacao;
 
-import br.fiap.carga.Carga;
 import br.fiap.cliente.Cliente;
+import br.fiap.carga.Carga;
 import br.fiap.viagem.Viagem;
+import javax.swing.JOptionPane;
 
 import javax.swing.*;
 
@@ -17,6 +18,7 @@ public class AppMenu {public static void main(String[] args) {
             + "3. Visualizar reservas\n"
             + "4. Capacidade reservada\n"
             + "5. Cancelar reserva\n"
+
             + "6. Encerrar programa\n\n"
             + "Escolha uma opção:";
 

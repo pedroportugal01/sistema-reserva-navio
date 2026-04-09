@@ -14,8 +14,6 @@ public class Viagem {
         this.index = 0;
     }
 
-    //Calcula a capacidade já reservada
-
     public double capacidadeReservada() {
         double total = 0;
         for (int i = 0; i < index; i++) {
@@ -24,18 +22,16 @@ public class Viagem {
         return total;
     }
 
-    // Verifica se há espaço no navio (peso total e vagas no array)
     public boolean permitidoReservar(double peso) {
         if (index >= carga.length) {
-            return false; // Não há mais posições no array
+            return false;
         }
         if (capacidadeReservada() + peso > capacidade) {
-            return false; // Ultrapassa o peso limite
+            return false;
         }
         return true;
     }
 
-    // Realiza a reserva
     public boolean reservar(Carga c) {
         if (permitidoReservar(c.getPeso())) {
             carga[index] = c;
@@ -45,8 +41,6 @@ public class Viagem {
         return false;
     }
 
-
-    // Retorna os dados de todas as cargas
     public String getDados() {
         if (index == 0) return "Nenhuma reserva efetuada até o momento.";
 
@@ -58,22 +52,19 @@ public class Viagem {
         return sb.toString();
     }
 
-
-    // Método auxiliar para a Opção 2 (Pesquisar)
+    // CORRIGIDO: Adicionado o .equals(cnpj) para comparar as Strings
     public String pesquisarPorCnpj(String cnpj) {
         for (int i = 0; i < index; i++) {
-            if (carga[i].getCliente().getCnpj()) {
+            if (carga[i].getCliente().getCnpj().equals(cnpj)) {
                 return carga[i].getDados();
             }
         }
         return "Nenhuma carga encontrada para o CNPJ informado.";
     }
 
-    // Método auxiliar para a Opção 5 (Cancelar)
     public boolean cancelarReserva(int id) {
         for (int i = 0; i < index; i++) {
             if (carga[i].getId() == id) {
-                // Desloca as cargas para trás para fechar o "buraco" no array
                 for (int j = i; j < index - 1; j++) {
                     carga[j] = carga[j + 1];
                 }
@@ -83,7 +74,5 @@ public class Viagem {
             }
         }
         return false;
-
-
     }
 }

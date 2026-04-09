@@ -1,36 +1,35 @@
 package br.fiap.cliente;
 
 public class Cliente {
+    // Alterado para String para suportar os dígitos do CNPJ e evitar erro de limite numérico
+    private String cnpj;
+    private String nome;
 
-    private int cnpj;
-    private String cliente;
-
-    //Construtor
-    public Cliente(int cnpj, String cliente) {
+    // Construtor corrigido
+    public Cliente(String nome, String cnpj) {
+        this.nome = nome;
         this.cnpj = cnpj;
-        this.cliente = cliente;
     }
 
-
-    //Getters e Setters
-    public String getCliente(){
-        return cliente;
+    // Getters e Setters
+    public String getNome() {
+        return nome;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public int getCnpj() {
+    public String getCnpj() {
         return cnpj;
     }
 
-    public void setCnpj(int cnpj) {
+    public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
     }
 
-    //Método que retorna os dados do objeto
-    public String getDados(){
-        return "Cliente: " + cliente +" | CNPJ: " + cnpj;
+    // Método que retorna os dados do objeto
+    public String getDados() {
+        return "Cliente: " + nome + " | CNPJ: " + cnpj;
     }
 }
